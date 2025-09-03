@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_top">
+</head>
+<body>
+    
+            <button id="saveBtn">Save Data</button>
+        <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxn19t86yfBBR0KD_pqEVoSlvpuyEg-fkAM2j0Y3Nbk1-029sl5lTuMZOMwL6XUc-jokA/exec"; 
+
+        document.getElementById("saveBtn").addEventListener("click", () => {
+            const payload = { name: "John Doe", score: 95 };
+
+            fetch(scriptURL, {
+            method: "POST",
+            body: JSON.stringify(payload)
+            })
+            .then(res => res.text())
+            .then(msg => alert(msg))
+            .catch(err => console.error("Error:", err));
+        });
+        </script>
+
+</body>
+</html>
